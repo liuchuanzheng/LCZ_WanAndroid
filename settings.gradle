@@ -1,0 +1,5 @@
+include ':tools_module'
+include ':net_module'
+include ':base_module'
+include ':app'
+rootProject.name = "LCZ_WanAndroid"
