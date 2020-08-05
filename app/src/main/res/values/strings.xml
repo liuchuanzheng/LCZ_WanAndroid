@@ -1,3 +1,42 @@
 <resources>
     <string name="app_name">LCZ_WanAndroid</string>
+
+    <string name="s_1">首页</string>
+    <string name="s_2">体系</string>
+    <string name="s_3">项目</string>
+    <string name="s_4">我的</string>
+    <string name="s_33">广场</string>
+    <string name="s_34">问答</string>
+
+    <string name="s_5">没有更多数据</string>
+    <string name="s_6">没有账号，去注册</string>
+    <string name="s_7">账号</string>
+    <string name="s_8">密码</string>
+    <string name="s_9">账号错误</string>
+    <string name="s_10">密码错误</string>
+    <string name="s_11">两次密码不一致</string>
+    <string name="s_12">确认密码</string>
+    <string name="s_13">已有账号，去登录</string>
+    <string name="s_14">积分:%d 排名:%d</string>
+    <string name="s_15">积分榜</string>
+    <string name="s_16">我的收藏</string>
+    <string name="s_17">我的分享</string>
+    <string name="s_18">等级:%d</string>
+    <string name="s_19">总积分:%d</string>
+    <string name="s_20">文章列表</string>
+    <string name="s_21">网站列表</string>
+    <string name="s_22">收藏站外文章</string>
+    <string name="s_23">收藏网站</string>
+    <string name="s_24">总积分榜</string>
+    <string name="s_25">登录</string>
+    <string name="s_26">注册</string>
+    <string name="s_27">设置</string>
+    <string name="s_28">退出登录</string>
+    <string name="s_29">退出成功</string>
+    <string name="s_30">登录成功</string>
+    <string name="s_31">积分明细</string>
+    <string name="s_32">项目列表</string>
+    <string name="s_35">操作成功</string>
+    <string name="s_36">操作失败</string>
+
 </resources>

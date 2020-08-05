@@ -2,25 +2,73 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 
+
+//#定义混淆代码的路径
+def proguardPath = "../proguard/code/proguard-rules.pro"
+
+// 服务器地址
+def String base_url_release = "\"https://www.wanandroid.com\""
 android {
-    compileSdkVersion 29
-    buildToolsVersion "29.0.3"
+    compileSdkVersion cfgs.compileSdkVersion
+    buildToolsVersion cfgs.buildToolsVersion
 
     defaultConfig {
         applicationId "com.liuchuanzheng.lcz_wanandroid"
-        minSdkVersion 23
-        targetSdkVersion 29
-        versionCode 1
-        versionName "1.0"
+        minSdkVersion cfgs.minSdkVersion
+        targetSdkVersion cfgs.targetSdkVersion
+        versionCode cfgs.versionCode
+        versionName cfgs.versionName
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        compileOptions {
+            sourceCompatibility JavaVersion.VERSION_1_8
+            targetCompatibility JavaVersion.VERSION_1_8
+        }
+    }
+    dataBinding {
+        enabled = true
+    }
+    signingConfigs {
+        wanAndroid {
+            //绝对路径和相对路径都可以
+            storeFile file("../keystores/lengjiye.keystore")  //签名文件
+            storePassword "ljy019916"                       //密码
+            keyAlias "lengjiye"
+            keyPassword "ljy019916"
+        }
+
     }
 
     buildTypes {
-        release {
+
+        debug {
+            debuggable true
+            // 是否开启混淆
             minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            zipAlignEnabled true
+            // 移除无用的resource文件
+            shrinkResources false
+            proguardFiles proguardPath
+            signingConfig signingConfigs.wanAndroid
+            buildConfigField("String", "BASE_URL", base_url_release)
         }
+        release {
+            debuggable false
+            minifyEnabled true
+            zipAlignEnabled true
+            // 移除无用的resource文件
+            shrinkResources true
+            proguardFiles proguardPath
+            signingConfig signingConfigs.wanAndroid
+            buildConfigField("String", "BASE_URL", base_url_release)
+        }
+    }
+    //刚开始的时候Extensions是不支持在ViewHolder中使用视图绑定的，
+    // 因此还是需要些findViewById，但是从Kotlin 1.1.4起，Extensions加入了增强功能，
+    // 由于这项功能还未正式发布，因此需要开启实验标志
+    androidExtensions {
+        experimental = true
     }
 }
 
@@ -36,5 +84,23 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+
+    implementation "com.airbnb.android:lottie:$cfgs.lottieVersion"
+    implementation "com.ashokvarma.android:bottom-navigation-bar:$cfgs.navigationVersion"
+    implementation "androidx.cardview:cardview:$cfgs.cardview"
+    //最新版本
+    implementation "com.youth.banner:banner:$cfgs.banner"
+    implementation "com.github.bumptech.glide:glide:$cfgs.glide"
+    annotationProcessor "com.github.bumptech.glide:compiler:$cfgs.glide"
+    debugImplementation "com.squareup.leakcanary:leakcanary-android:$cfgs.leakcanary"
+    // 刷新加载控件
+    implementation "com.scwang.smart:refresh-layout-kernel:$cfgs.smart_refresh_layout"      //核心必须依赖
+    implementation "com.scwang.smart:refresh-header-material:$cfgs.smart_refresh_layout"    //谷歌刷新头
+    implementation "com.scwang.smart:refresh-footer-ball:$cfgs.smart_refresh_layout"    //球脉冲加载
+    // webview
+    implementation "com.just.agentweb:agentweb:$cfgs.agentweb"
+
+    implementation "com.google.android.material:material:$cfgs.material"
+    implementation "androidx.constraintlayout:constraintlayout:$cfgs.constraintlayout"
 
 }

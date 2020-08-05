@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="DeleteEditTextView">
+        <attr name="icon" format="reference" />
+        <attr name="text" format="string" />
+        <attr name="hint" format="reference" />
+        <attr name="textSize" format="dimension" />
+        <attr name="lineVisibility" format="boolean" />
+        <attr name="inputType" format="enum">
+            <enum name="text" value="1" />
+            <enum name="pass" value="2" />
+        </attr>
+    </declare-styleable>
+
+    <declare-styleable name="HorizontalNavigation">
+        <attr name="widgets_content" format="string" />
+    </declare-styleable>
+
+    <declare-styleable name="AutoTextView">
+        <attr name="textSizes" format="dimension" />
+    </declare-styleable>
+</resources>
