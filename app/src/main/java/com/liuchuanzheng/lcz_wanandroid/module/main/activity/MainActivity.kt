@@ -4,20 +4,26 @@ import android.os.Bundle
 import androidx.fragment.app.Fragment
 import com.ashokvarma.bottomnavigation.BottomNavigationBar
 import com.ashokvarma.bottomnavigation.BottomNavigationItem
+import com.lengjiye.code.home.fragment.HomeFragment
+import com.lengjiye.code.main.manager.MainFragmentManager
 import com.liuchuanzheng.base_module.config.activity.BaseActivity
 import com.liuchuanzheng.lcz_wanandroid.R
 import com.liuchuanzheng.lcz_wanandroid.databinding.ActivityMainBinding
 import com.liuchuanzheng.lcz_wanandroid.module.main.viewmodel.MainViewModel
+import com.liuchuanzheng.tools_module.LogTool
 
 class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>() {
-
+    private lateinit var mTempFragment: Fragment
     /**
      * 初始化数据
      * 设置数据
      * 请求接口等
      */
     override fun initData() {
-
+        mTempFragment = MainFragmentManager.instance.getHomeFragment()
+        supportFragmentManager.beginTransaction()
+            .add(R.id.f_container, mTempFragment as HomeFragment)
+            .show(mTempFragment as HomeFragment).commit()
     }
 
     override fun initView() {
@@ -102,6 +108,47 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>() {
         }
     }
     private fun switchFragment(position: Int) {
+        var fragment: Fragment? = null
+        when (position) {
+            0 -> {
+                fragment = MainFragmentManager.instance.getHomeFragment()
+            }
 
+            1 -> {
+                fragment = MainFragmentManager.instance.getHomeFragment()
+            }
+
+            2 -> {
+                fragment = MainFragmentManager.instance.getHomeFragment()
+            }
+
+            3 -> {
+                fragment = MainFragmentManager.instance.getHomeFragment()
+            }
+
+            4 -> {
+                fragment = MainFragmentManager.instance.getHomeFragment()
+            }
+
+        }
+
+        fragment?.let {
+            switchFragment(it)
+        }
+    }
+    /**
+     * 切换fragment
+     */
+    private fun switchFragment(fragment: Fragment) {
+
+        if (fragment == mTempFragment) {
+            return
+        }
+        if (fragment.isAdded) {
+            supportFragmentManager.beginTransaction().hide(mTempFragment).show(fragment).commit()
+        } else {
+            supportFragmentManager.beginTransaction().hide(mTempFragment).add(R.id.f_container, fragment).commit()
+        }
+        mTempFragment = fragment
     }
 }

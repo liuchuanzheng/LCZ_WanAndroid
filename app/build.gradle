@@ -103,4 +103,10 @@ dependencies {
     implementation "com.google.android.material:material:$cfgs.material"
     implementation "androidx.constraintlayout:constraintlayout:$cfgs.constraintlayout"
 
+    /*▽▽▽▽▽▽▽▽▽▽▽▽▽▽▽▽▽▽▽▽▽▽▽▽▽▽▽▽▽▽▽▽▽▽▽▽▽▽▽▽▽▽▽▽▽▽▽▽▽▽▽▽▽▽▽▽▽▽▽▽▽▽▽*/
+    //   地址：https://github.com/CymChad/BaseRecyclerViewAdapterHelper
+
+    //   recyclerview的适配器库
+    implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.46'
+    /*△△△△△△△△△△△△△△△△△△△△△△△△△△△△△△△△△△△△△△△△△△△△△△△△△△△△△△△△△△△△△△△*/
 }
