@@ -41,4 +41,10 @@ dependencies {
     api "androidx.lifecycle:lifecycle-extensions:$cfgs.lifecycleVersion"
     api "androidx.recyclerview:recyclerview:$cfgs.recycleview"
 
+    /*▽▽▽▽▽▽▽▽▽▽▽▽▽▽▽▽▽▽▽▽▽▽▽▽▽▽▽▽▽▽▽▽▽▽▽▽▽▽▽▽▽▽▽▽▽▽▽▽▽▽▽▽▽▽▽▽▽▽▽▽▽▽▽*/
+    //   地址：https://github.com/orhanobut/logger
+    //打log的著名库，使用方便，格式美观，便于管理。
+    api 'com.orhanobut:logger:2.2.0'
+    /*△△△△△△△△△△△△△△△△△△△△△△△△△△△△△△△△△△△△△△△△△△△△△△△△△△△△△△△△△△△△△△△*/
+
 }

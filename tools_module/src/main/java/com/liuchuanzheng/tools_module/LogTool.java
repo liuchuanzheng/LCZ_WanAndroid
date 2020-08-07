@@ -14,7 +14,7 @@ import android.util.Log;
 public class LogTool {
 
     public static final String SEPARATOR = ",";
-    public static final String TAG_NAME = "WanAndroid";
+    public static final String TAG_NAME = "玩安卓";
 
     private LogTool() {
         /* cannot be instantiated */
